@@ -16,6 +16,11 @@ class BasePage:
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
 
+    def go_to_basket_page(self):
+        assert self.is_element_present(*BasePageLocators.BASKET_BUTTON), "Basket button is not presented"
+        link = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
+        link.click()
+
     def is_disappeared(self, how, what, timeout=4):
         try:
             WebDriverWait(self.browser, timeout, 1, TimeoutException).until_not(
